@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Outcome resource:
+  # CREATE
+  get "/outcomes/new", :controller => "outcomes", :action => "new"
+  post "/create_outcome", :controller => "outcomes", :action => "create"
+
+  # READ
+  get "/outcomes", :controller => "outcomes", :action => "index"
+  get "/outcomes/:id", :controller => "outcomes", :action => "show"
+
+  # UPDATE
+  get "/outcomes/:id/edit", :controller => "outcomes", :action => "edit"
+  post "/update_outcome/:id", :controller => "outcomes", :action => "update"
+
+  # DELETE
+  get "/delete_outcome/:id", :controller => "outcomes", :action => "destroy"
+  #------------------------------
+
   # Routes for the Question resource:
   # CREATE
   get "/questions/new", :controller => "questions", :action => "new"

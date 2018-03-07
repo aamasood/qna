@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Outcome #<%= @outcome.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Prereq question</dt>
+      <dd><%= @outcome.prereq_question_id %></dd>
+
+      <dt>Answer</dt>
+      <dd><%= @outcome.answer_id %></dd>
+
+      <dt>Resulting question</dt>
+      <dd><%= @outcome.resulting_question_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/outcomes" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/outcomes/<%= @outcome.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_outcome/<%= @outcome.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

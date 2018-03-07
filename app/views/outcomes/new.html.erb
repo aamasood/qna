@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @outcome.errors.any? %>
+  <% @outcome.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Outcome</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_outcome" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for prereq_question_id -->
+      <div class="form-group">
+        <label for="prereq_question_id" class="control-label">
+          Prereq question
+        </label>
+
+        <input type="text" id="prereq_question_id" name="prereq_question_id" placeholder="Prereq question" class="form-control" value="<%= @outcome.prereq_question_id %>">
+      </div>
+
+      <!-- Label and input for answer_id -->
+      <div class="form-group">
+        <label for="answer_id" class="control-label">
+          Answer
+        </label>
+
+        <input type="text" id="answer_id" name="answer_id" placeholder="Answer" class="form-control" value="<%= @outcome.answer_id %>">
+      </div>
+
+      <!-- Label and input for resulting_question_id -->
+      <div class="form-group">
+        <label for="resulting_question_id" class="control-label">
+          Resulting question
+        </label>
+
+        <input type="text" id="resulting_question_id" name="resulting_question_id" placeholder="Resulting question" class="form-control" value="<%= @outcome.resulting_question_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Outcome
+      </button>
+      or
+      <a href="/outcomes">Cancel</a>
+    </form>
+  </div>
+</div>
