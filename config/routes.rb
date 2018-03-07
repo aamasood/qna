@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "questions#index"
   # Routes for the User_response resource:
   # CREATE
   get "/user_responses/new", :controller => "user_responses", :action => "new"
