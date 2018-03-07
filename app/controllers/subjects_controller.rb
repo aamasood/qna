@@ -6,6 +6,8 @@ class SubjectsController < ApplicationController
   end
 
   def show
+    @user_status = UserStatus.new
+    @question = Question.new
     @subject = Subject.find(params[:id])
 
     render("subjects/show.html.erb")

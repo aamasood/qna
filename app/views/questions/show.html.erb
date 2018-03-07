@@ -57,6 +57,44 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_outcome" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for prereq_question_id -->
+      <div class="form-group">
+        <label for="prereq_question_id" class="control-label">
+          Prereq question
+        </label>
+
+        <%= select_tag(:prereq_question_id, options_from_collection_for_select(Question.all, :id, :inquiry), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for answer_id -->
+      <div class="form-group">
+        <label for="answer_id" class="control-label">
+          Answer
+        </label>
+
+        <%= select_tag(:answer_id, options_from_collection_for_select(Answer.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for resulting_question_id -->
+      <div class="form-group">
+        <label for="resulting_question_id" class="control-label">
+          Resulting question
+        </label>
+
+        <%= select_tag(:resulting_question_id, options_from_collection_for_select(Question.all, :id, :inquiry), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Outcome
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -119,6 +157,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_answer" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for response -->
+      <div class="form-group">
+        <label for="response" class="control-label">
+          Response
+        </label>
+
+        <input type="text" id="response" name="response" placeholder="Response" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for question_id -->
+      <input type="hidden" name="question_id" value="<%= @question.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Answer
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -150,6 +211,32 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_user_response" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for question_id -->
+      <input type="hidden" name="question_id" value="<%= @question.id %>">
+
+      <!-- Label and input for answer_id -->
+      <div class="form-group">
+        <label for="answer_id" class="control-label">
+          Answer
+        </label>
+
+        <%= select_tag(:answer_id, options_from_collection_for_select(Answer.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create User Response
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

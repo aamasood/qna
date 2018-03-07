@@ -6,6 +6,9 @@ class AnswersController < ApplicationController
   end
 
   def show
+    @user_response = UserResponse.new
+    @user_status = UserStatus.new
+    @outcome = Outcome.new
     @answer = Answer.find(params[:id])
 
     render("answers/show.html.erb")

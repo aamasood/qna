@@ -48,6 +48,37 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_question" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for inquiry -->
+      <div class="form-group">
+        <label for="inquiry" class="control-label">
+          Inquiry
+        </label>
+
+        <input type="text" id="inquiry" name="inquiry" placeholder="Inquiry" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for subject_id -->
+      <input type="hidden" name="subject_id" value="<%= @subject.id %>">
+
+      <!-- Label and input for high_level_question -->
+      <div class="checkbox">
+        <label for="high_level_question">
+          <input type="checkbox" id="high_level_question" name="high_level_question" value="1" <%= "checked" if @question.high_level_question %>>
+          High level question
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Question
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -79,6 +110,41 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_user_status" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for subject_id -->
+      <input type="hidden" name="subject_id" value="<%= @subject.id %>">
+
+      <!-- Label and input for last_question_id -->
+      <div class="form-group">
+        <label for="last_question_id" class="control-label">
+          Last question
+        </label>
+
+        <input type="text" id="last_question_id" name="last_question_id" placeholder="Last question" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for last_answer_id -->
+      <div class="form-group">
+        <label for="last_answer_id" class="control-label">
+          Last answer
+        </label>
+
+        <%= select_tag(:last_answer_id, options_from_collection_for_select(Answer.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create User Status
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
