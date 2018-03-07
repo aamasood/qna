@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :company
+
   has_many   :user_responses,
              :dependent => :destroy
 
