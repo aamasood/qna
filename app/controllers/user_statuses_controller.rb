@@ -10,7 +10,7 @@ class UserStatusesController < ApplicationController
   end
 
   def index
-    @user_statuses = UserStatus.all
+    @user_statuses = current_user.user_statuses.page(params[:page]).per(10)
 
     render("user_statuses/index.html.erb")
   end
