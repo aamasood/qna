@@ -1,5 +1,5 @@
 class UserStatusesController < ApplicationController
-  before_action :current_user_must_be_user_status_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_user_status_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_user_status_user
     user_status = UserStatus.find(params[:id])
