@@ -10,7 +10,8 @@ class UserStatusesController < ApplicationController
   end
 
   def index
-    @user_statuses = current_user.user_statuses.page(params[:page]).per(10)
+    @q = current_user.user_statuses.ransack(params[:q])
+      @user_statuses = @q.result(:distinct => true).includes(:user, :last_answer, :subject).page(params[:page]).per(10)
 
     render("user_statuses/index.html.erb")
   end

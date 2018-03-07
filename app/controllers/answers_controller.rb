@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   def index
-    @answers = Answer.page(params[:page]).per(10)
+    @q = Answer.ransack(params[:q])
+    @answers = @q.result(:distinct => true).includes(:question, :outcomes, :user_statuses, :user_responses).page(params[:page]).per(10)
 
     render("answers/index.html.erb")
   end

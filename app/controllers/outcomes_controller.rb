@@ -1,6 +1,7 @@
 class OutcomesController < ApplicationController
   def index
-    @outcomes = Outcome.page(params[:page]).per(10)
+    @q = Outcome.ransack(params[:q])
+    @outcomes = @q.result(:distinct => true).includes(:prereq_question, :resulting_question, :answer).page(params[:page]).per(10)
 
     render("outcomes/index.html.erb")
   end

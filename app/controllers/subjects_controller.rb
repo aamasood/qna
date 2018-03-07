@@ -1,6 +1,7 @@
 class SubjectsController < ApplicationController
   def index
-    @subjects = Subject.page(params[:page]).per(10)
+    @q = Subject.ransack(params[:q])
+    @subjects = @q.result(:distinct => true).includes(:questions, :user_statuses).page(params[:page]).per(10)
 
     render("subjects/index.html.erb")
   end
