@@ -42,7 +42,7 @@
           Resulting question
         </label>
 
-        <input type="text" id="resulting_question_id" name="resulting_question_id" placeholder="Resulting question" class="form-control" value="<%= @outcome.resulting_question_id %>">
+        <%= select_tag(:resulting_question_id, options_from_collection_for_select(Question.all, :id, :inquiry, @outcome.resulting_question_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
