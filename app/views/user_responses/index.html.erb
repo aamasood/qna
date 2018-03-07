@@ -17,7 +17,7 @@
 
       <% @user_responses.each do |user_response| %>
       <tr>
-        <td><%= user_response.user_id %></td>
+        <td><%= user_response.user.email %></td>
         <td><%= user_response.question_id %></td>
         <td><%= user_response.answer_id %></td>
         <td>
