@@ -1,6 +1,10 @@
 class Outcome < ApplicationRecord
   # Direct associations
 
+  belongs_to :answer,
+             :required => false,
+             :counter_cache => true
+
   belongs_to :resulting_question,
              :required => false,
              :class_name => "Question"
