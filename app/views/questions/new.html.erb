@@ -1,0 +1,54 @@
+<!-- Validation failure messages -->
+<% if @question.errors.any? %>
+  <% @question.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Question</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_question" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for inquiry -->
+      <div class="form-group">
+        <label for="inquiry" class="control-label">
+          Inquiry
+        </label>
+
+        <input type="text" id="inquiry" name="inquiry" placeholder="Inquiry" class="form-control" value="<%= @question.inquiry %>">
+      </div>
+
+      <!-- Label and input for subject_id -->
+      <div class="form-group">
+        <label for="subject_id" class="control-label">
+          Subject
+        </label>
+
+        <input type="text" id="subject_id" name="subject_id" placeholder="Subject" class="form-control" value="<%= @question.subject_id %>">
+      </div>
+
+      <!-- Label and input for high_level_question -->
+      <div class="checkbox">
+        <label for="high_level_question">
+          <input type="checkbox" id="high_level_question" name="high_level_question" value="1" <%= "checked" if @question.high_level_question %>>
+          High level question
+        </label>
+      </div>
+
+      <button class="btn btn-success">
+        Create Question
+      </button>
+      or
+      <a href="/questions">Cancel</a>
+    </form>
+  </div>
+</div>
