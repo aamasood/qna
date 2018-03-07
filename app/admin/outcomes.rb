@@ -1,4 +1,6 @@
 ActiveAdmin.register Outcome do
+
+ permit_params :prereq_question_id, :answer_id, :resulting_question_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
