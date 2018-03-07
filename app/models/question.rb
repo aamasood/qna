@@ -1,6 +1,8 @@
 class Question < ApplicationRecord
   # Direct associations
 
+  has_many   :answers
+
   has_many   :question_outcomes,
              :class_name => "Outcome",
              :foreign_key => "resulting_question_id"
