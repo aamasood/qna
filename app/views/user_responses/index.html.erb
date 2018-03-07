@@ -22,8 +22,11 @@
         <td><%= user_response.answer.created_at %></td>
         <td>
           <a href="/user_responses/<%= user_response.id %>" class="btn btn-primary">Show</a>
-          <a href="/user_responses/<%= user_response.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_user_response/<%= user_response.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == user_response.user %>
+            <a href="/user_responses/<%= user_response.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_user_response/<%= user_response.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

@@ -1,4 +1,14 @@
 class UserResponsesController < ApplicationController
+  before_action :current_user_must_be_user_response_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_user_response_user
+    user_response = UserResponse.find(params[:id])
+
+    unless current_user == user_response.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @user_responses = UserResponse.all
 
