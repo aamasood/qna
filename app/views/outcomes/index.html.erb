@@ -17,7 +17,7 @@
 
       <% @outcomes.each do |outcome| %>
       <tr>
-        <td><%= outcome.prereq_question_id %></td>
+        <td><%= outcome.prereq_question.inquiry %></td>
         <td><%= outcome.answer_id %></td>
         <td><%= outcome.resulting_question_id %></td>
         <td>
