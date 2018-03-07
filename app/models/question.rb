@@ -1,6 +1,9 @@
 class Question < ApplicationRecord
   # Direct associations
 
+  has_many   :user_responses,
+             :dependent => :destroy
+
   has_many   :answers
 
   has_many   :question_outcomes,
