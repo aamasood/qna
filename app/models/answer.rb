@@ -1,6 +1,9 @@
 class Answer < ApplicationRecord
   # Direct associations
 
+  has_many   :user_responses,
+             :dependent => :destroy
+
   has_many   :user_statuses,
              :foreign_key => "last_answer_id"
 
