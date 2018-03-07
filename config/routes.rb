@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the User_status resource:
+  # CREATE
+  get "/user_statuses/new", :controller => "user_statuses", :action => "new"
+  post "/create_user_status", :controller => "user_statuses", :action => "create"
+
+  # READ
+  get "/user_statuses", :controller => "user_statuses", :action => "index"
+  get "/user_statuses/:id", :controller => "user_statuses", :action => "show"
+
+  # UPDATE
+  get "/user_statuses/:id/edit", :controller => "user_statuses", :action => "edit"
+  post "/update_user_status/:id", :controller => "user_statuses", :action => "update"
+
+  # DELETE
+  get "/delete_user_status/:id", :controller => "user_statuses", :action => "destroy"
+  #------------------------------
+
   # Routes for the Outcome resource:
   # CREATE
   get "/outcomes/new", :controller => "outcomes", :action => "new"

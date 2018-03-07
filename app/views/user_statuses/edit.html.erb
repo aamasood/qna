@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @user_status.errors.any? %>
+  <% @user_status.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit User Status #<%= @user_status.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_user_status/<%= @user_status.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for subject_id -->
+      <div class="form-group">
+        <label for="subject_id" class="control-label">
+          Subject
+        </label>
+
+        <input type="text" id="subject_id" name="subject_id" placeholder="Subject" class="form-control" value="<%= @user_status.subject_id %>">
+      </div>
+
+      <!-- Label and input for last_question_id -->
+      <div class="form-group">
+        <label for="last_question_id" class="control-label">
+          Last question
+        </label>
+
+        <input type="text" id="last_question_id" name="last_question_id" placeholder="Last question" class="form-control" value="<%= @user_status.last_question_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @user_status.user_id %>">
+      </div>
+
+      <!-- Label and input for last_answer_id -->
+      <div class="form-group">
+        <label for="last_answer_id" class="control-label">
+          Last answer
+        </label>
+
+        <input type="text" id="last_answer_id" name="last_answer_id" placeholder="Last answer" class="form-control" value="<%= @user_status.last_answer_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update User Status
+      </button>
+      or
+      <a href="/user_statuses/<%= @user_status.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
