@@ -19,7 +19,7 @@
       <tr>
         <td><%= user_response.user.email %></td>
         <td><%= user_response.question.inquiry %></td>
-        <td><%= user_response.answer_id %></td>
+        <td><%= user_response.answer.created_at %></td>
         <td>
           <a href="/user_responses/<%= user_response.id %>" class="btn btn-primary">Show</a>
           <a href="/user_responses/<%= user_response.id %>/edit" class="btn btn-warning">Edit</a>
