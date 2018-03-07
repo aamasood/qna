@@ -5,4 +5,6 @@ class Answer < ApplicationRecord
 
   # Validations
 
+  validates :response, :presence => true
+
 end
