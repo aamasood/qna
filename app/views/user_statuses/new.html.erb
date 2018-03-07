@@ -51,7 +51,7 @@
           Last answer
         </label>
 
-        <input type="text" id="last_answer_id" name="last_answer_id" placeholder="Last answer" class="form-control" value="<%= @user_status.last_answer_id %>">
+        <%= select_tag(:last_answer_id, options_from_collection_for_select(Answer.all, :id, :created_at, @user_status.last_answer_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
