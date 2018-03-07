@@ -24,7 +24,7 @@
           Prereq question
         </label>
 
-        <input type="text" id="prereq_question_id" name="prereq_question_id" placeholder="Prereq question" class="form-control" value="<%= @outcome.prereq_question_id %>">
+        <%= select_tag(:prereq_question_id, options_from_collection_for_select(Question.all, :id, :inquiry, @outcome.prereq_question_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for answer_id -->
