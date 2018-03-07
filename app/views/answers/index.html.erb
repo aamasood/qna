@@ -17,7 +17,13 @@
       <% @answers.each do |answer| %>
       <tr>
         <td><%= answer.response %></td>
-        <td><%= answer.question.inquiry %></td>
+        <td>
+          <% if answer.question.present? %>
+            <a href="/questions/<%= answer.question.id %>">
+              <%= answer.question.inquiry %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/answers/<%= answer.id %>" class="btn btn-primary">Show</a>
           <a href="/answers/<%= answer.id %>/edit" class="btn btn-warning">Edit</a>

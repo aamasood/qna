@@ -9,7 +9,13 @@
       <dd><%= @question.inquiry %></dd>
 
       <dt>Subject</dt>
-      <dd><%= @question.subject_id %></dd>
+      <dd>
+        <% if @question.subject.present? %>
+          <a href="/subjects/<%= @question.subject_id %>">
+            <%= @question.subject.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>High level question</dt>
       <dd><%= @question.high_level_question %></dd>

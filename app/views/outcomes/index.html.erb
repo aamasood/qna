@@ -17,9 +17,27 @@
 
       <% @outcomes.each do |outcome| %>
       <tr>
-        <td><%= outcome.prereq_question.inquiry %></td>
-        <td><%= outcome.answer.created_at %></td>
-        <td><%= outcome.resulting_question.inquiry %></td>
+        <td>
+          <% if outcome.prereq_question.present? %>
+            <a href="/questions/<%= outcome.prereq_question.id %>">
+              <%= outcome.prereq_question.inquiry %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if outcome.answer.present? %>
+            <a href="/answers/<%= outcome.answer.id %>">
+              <%= outcome.answer.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if outcome.resulting_question.present? %>
+            <a href="/questions/<%= outcome.resulting_question.id %>">
+              <%= outcome.resulting_question.inquiry %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/outcomes/<%= outcome.id %>" class="btn btn-primary">Show</a>
           <a href="/outcomes/<%= outcome.id %>/edit" class="btn btn-warning">Edit</a>

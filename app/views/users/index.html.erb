@@ -22,7 +22,13 @@
         <td><%= user.email %></td>
         <td><%= user.password %></td>
         <td><%= user.name %></td>
-        <td><%= user.company.name %></td>
+        <td>
+          <% if user.company.present? %>
+            <a href="/companies/<%= user.company.id %>">
+              <%= user.company.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= user.admin_user %></td>
         <td>
           <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>

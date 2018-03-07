@@ -18,10 +18,28 @@
 
       <% @user_statuses.each do |user_status| %>
       <tr>
-        <td><%= user_status.subject.created_at %></td>
+        <td>
+          <% if user_status.subject.present? %>
+            <a href="/subjects/<%= user_status.subject.id %>">
+              <%= user_status.subject.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= user_status.last_question_id %></td>
-        <td><%= user_status.user.email %></td>
-        <td><%= user_status.last_answer.created_at %></td>
+        <td>
+          <% if user_status.user.present? %>
+            <a href="/users/<%= user_status.user.id %>">
+              <%= user_status.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if user_status.last_answer.present? %>
+            <a href="/answers/<%= user_status.last_answer.id %>">
+              <%= user_status.last_answer.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/user_statuses/<%= user_status.id %>" class="btn btn-primary">Show</a>
           

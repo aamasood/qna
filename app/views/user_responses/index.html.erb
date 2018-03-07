@@ -17,9 +17,27 @@
 
       <% @user_responses.each do |user_response| %>
       <tr>
-        <td><%= user_response.user.email %></td>
-        <td><%= user_response.question.inquiry %></td>
-        <td><%= user_response.answer.created_at %></td>
+        <td>
+          <% if user_response.user.present? %>
+            <a href="/users/<%= user_response.user.id %>">
+              <%= user_response.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if user_response.question.present? %>
+            <a href="/questions/<%= user_response.question.id %>">
+              <%= user_response.question.inquiry %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if user_response.answer.present? %>
+            <a href="/answers/<%= user_response.answer.id %>">
+              <%= user_response.answer.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/user_responses/<%= user_response.id %>" class="btn btn-primary">Show</a>
           

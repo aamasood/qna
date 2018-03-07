@@ -18,7 +18,13 @@
       <% @questions.each do |question| %>
       <tr>
         <td><%= question.inquiry %></td>
-        <td><%= question.subject.created_at %></td>
+        <td>
+          <% if question.subject.present? %>
+            <a href="/subjects/<%= question.subject.id %>">
+              <%= question.subject.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= question.high_level_question %></td>
         <td>
           <a href="/questions/<%= question.id %>" class="btn btn-primary">Show</a>

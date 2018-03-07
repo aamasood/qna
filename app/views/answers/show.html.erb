@@ -9,7 +9,13 @@
       <dd><%= @answer.response %></dd>
 
       <dt>Question</dt>
-      <dd><%= @answer.question_id %></dd>
+      <dd>
+        <% if @answer.question.present? %>
+          <a href="/questions/<%= @answer.question_id %>">
+            <%= @answer.question.inquiry %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

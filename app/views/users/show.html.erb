@@ -15,7 +15,13 @@
       <dd><%= @user.name %></dd>
 
       <dt>Company</dt>
-      <dd><%= @user.company_id %></dd>
+      <dd>
+        <% if @user.company.present? %>
+          <a href="/companies/<%= @user.company_id %>">
+            <%= @user.company.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Admin user</dt>
       <dd><%= @user.admin_user %></dd>
