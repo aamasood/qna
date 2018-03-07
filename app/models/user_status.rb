@@ -1,6 +1,8 @@
 class UserStatus < ApplicationRecord
   # Direct associations
 
+  belongs_to :subject
+
   belongs_to :last_answer,
              :required => false,
              :class_name => "Answer"
