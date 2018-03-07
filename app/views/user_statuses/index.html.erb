@@ -24,8 +24,11 @@
         <td><%= user_status.last_answer.created_at %></td>
         <td>
           <a href="/user_statuses/<%= user_status.id %>" class="btn btn-primary">Show</a>
-          <a href="/user_statuses/<%= user_status.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_user_status/<%= user_status.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == user_status.user %>
+            <a href="/user_statuses/<%= user_status.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_user_status/<%= user_status.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
