@@ -10,7 +10,7 @@ class UserResponsesController < ApplicationController
   end
 
   def index
-    @user_responses = UserResponse.all
+    @user_responses = current_user.user_responses.page(params[:page]).per(10)
 
     render("user_responses/index.html.erb")
   end
