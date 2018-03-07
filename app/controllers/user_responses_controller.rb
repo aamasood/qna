@@ -48,8 +48,6 @@ class UserResponsesController < ApplicationController
 
   def update
     @user_response = UserResponse.find(params[:id])
-
-    @user_response.user_id = params[:user_id]
     @user_response.question_id = params[:question_id]
     @user_response.answer_id = params[:answer_id]
 
