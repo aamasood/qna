@@ -18,7 +18,7 @@
 
       <% @user_statuses.each do |user_status| %>
       <tr>
-        <td><%= user_status.subject_id %></td>
+        <td><%= user_status.subject.created_at %></td>
         <td><%= user_status.last_question_id %></td>
         <td><%= user_status.user_id %></td>
         <td><%= user_status.last_answer_id %></td>
