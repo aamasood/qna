@@ -1,6 +1,6 @@
 class OutcomesController < ApplicationController
   def index
-    @outcomes = Outcome.all
+    @outcomes = Outcome.page(params[:page]).per(10)
 
     render("outcomes/index.html.erb")
   end
