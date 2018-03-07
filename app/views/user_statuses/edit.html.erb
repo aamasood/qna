@@ -36,14 +36,8 @@
         <input type="text" id="last_question_id" name="last_question_id" placeholder="Last question" class="form-control" value="<%= @user_status.last_question_id %>">
       </div>
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email, @user_status.user_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for last_answer_id -->
       <div class="form-group">
