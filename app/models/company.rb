@@ -5,4 +5,6 @@ class Company < ApplicationRecord
 
   # Validations
 
+  validates :name, :uniqueness => { :scope => [:address] }
+
 end
