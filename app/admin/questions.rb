@@ -1,4 +1,6 @@
 ActiveAdmin.register Question do
+
+ permit_params :inquiry, :subject_id, :high_level_question
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
