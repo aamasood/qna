@@ -1,6 +1,9 @@
 class Question < ApplicationRecord
   # Direct associations
 
+  belongs_to :subject,
+             :counter_cache => true
+
   has_many   :user_responses,
              :dependent => :destroy
 
